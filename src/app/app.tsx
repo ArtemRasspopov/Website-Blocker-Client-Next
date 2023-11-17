@@ -3,7 +3,6 @@ import { AppProvider } from "./app-provider";
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
-
 export function App({ Component, pageProps }: AppProps) {
   return (
     <AppProvider>

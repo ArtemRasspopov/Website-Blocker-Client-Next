@@ -1,4 +1,4 @@
-import '@/app/globals.css'
-import App from 'next/app'
+import { App } from "@/app";
+import "@/app/globals.css";
 
-export default App
+export default App;
