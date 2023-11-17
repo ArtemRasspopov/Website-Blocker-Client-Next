@@ -1,32 +1,28 @@
-import Image from "next/image";
 import { Inter } from "next/font/google";
-import {
-  authControllerGetSessionInfo,
-  authControllerSignOut,
-} from "@/shared/api/generated";
-import { useQuery } from "@tanstack/react-query";
-import { UiButton } from "@/shared/ui/ui-button";
-import { UiTextField } from "@/shared/ui/ui-text-field";
-import { UiSelectField } from "@/shared/ui/ui-select-fuild";
+import { UiHeader } from "@/shared/ui/ui-header";
+import { SignOutButton } from "@/features/auth";
+import { useSessionQuery } from "@/entities/session/queries";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function HomePage() {
+  const {data} = useSessionQuery()
+
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <UiButton variant="primery">text</UiButton>
-      <UiButton variant={"secondary"}>text</UiButton>
-      <UiButton variant={"outlined"}>text</UiButton>
-      <UiButton variant={"primery"} disabled>
-        text
-      </UiButton>
-      <UiTextField
-        label="Text field"
-        inputProps={{ placeholder: "Enter email..." }}
+    <div className={`min-h-screen flex flex-col`}>
+      <UiHeader
+        right={
+          <div className="flex items-center gap-4">
+            {data?.email} <SignOutButton />
+          </div>
+        }
       />
-      <UiSelectField selectProps={{ placeholder: "Enter email..." }} options={[{value : '1', label: 'option1'}]}/>
-    </main>
+      <div className="grid grid-cols-[200px_1fr]">
+        <aside className="px-5 pt-10"></aside>
+        <main className="pt-10 px-5">
+          <h1 className="text-2xl mb-8">Block list</h1>
+        </main>
+      </div>
+    </div>
   );
 }
