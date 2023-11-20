@@ -36,7 +36,7 @@ export const BlockItemDtoType = {
 export interface BlockItemDto {
   blockListId: number;
   createdAt: string;
-  date: string;
+  data: string;
   id: number;
   type: BlockItemDtoType;
 }
@@ -149,7 +149,7 @@ export const accountControllerGetAccount = (
   );
 };
 
-export const accountControllerGetPatchAccount = (
+export const accountControllerPatchAccount = (
   patchAccountDto: BodyType<PatchAccountDto>,
   options?: SecondParameter<typeof createInstance>,
 ) => {
@@ -218,7 +218,7 @@ export type AccountControllerGetAccountResult = NonNullable<
   Awaited<ReturnType<typeof accountControllerGetAccount>>
 >;
 export type AccountControllerGetPatchAccountResult = NonNullable<
-  Awaited<ReturnType<typeof accountControllerGetPatchAccount>>
+  Awaited<ReturnType<typeof accountControllerPatchAccount>>
 >;
 export type BlockListControllerGetListResult = NonNullable<
   Awaited<ReturnType<typeof blockListControllerGetList>>

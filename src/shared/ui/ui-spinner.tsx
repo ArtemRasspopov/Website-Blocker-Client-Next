@@ -1,4 +1,4 @@
-export function UiSpinner({ className }: { className: string }) {
+export function UiSpinner({ className }: { className?: string }) {
   return (
     <svg
       className={className}
